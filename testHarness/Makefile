@@ -37,14 +37,14 @@ TestHarness: ${TARGETS}
 
 #Our make commands
 TestHarnessSiggen: ${TARGETS}
-  java ${CP} TestHarness siggenlog go run ../siggen/mqtt-siggen.go
+	java ${CP} TestHarness siggenlog go run ../siggen/mqtt-siggen.go
 
 TestHarnessMavg: ${TARGETS}
-  java ${CP} TestHarness mavglog go run ../mavg/mqtt-mavg.go
+	java ${CP} TestHarness mavglog go run ../mavg/mqtt-mavg.go
 
 TestHarnessFunc: ${TARGETS}
-  java ${CP} TestHarness funclog go run ../func/mqtt-func.go
+	java ${CP} TestHarness funclog go run ../func/mqtt-func.go
 
 TestHarnessClient: ${TARGETS}
-  java ${CP} TestHarness clientlog mosquitto_sub -v -t "func/+/+"
+	java ${CP} TestHarness clientlog mosquitto_sub -v -t "func/+/+"
 
