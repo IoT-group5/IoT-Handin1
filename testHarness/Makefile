@@ -35,3 +35,16 @@ TestHarness.class: TestHarness.java
 TestHarness: ${TARGETS}
 	java ${CP} TestHarness run42 chromium-browser
 
+#Our make commands
+TestHarnessSiggen: ${TARGETS}
+  java ${CP} TestHarness siggenlog go run ../siggen/mqtt-siggen.go
+
+TestHarnessMavg: ${TARGETS}
+  java ${CP} TestHarness mavglog go run ../mavg/mqtt-mavg.go
+
+TestHarnessFunc: ${TARGETS}
+  java ${CP} TestHarness funclog go run ../func/mqtt-func.go
+
+TestHarnessClient: ${TARGETS}
+  java ${CP} TestHarness clientlog mosquitto_sub -v -t "func/+/+"
+
