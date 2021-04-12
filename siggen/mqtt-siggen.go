@@ -90,6 +90,7 @@ func produce (client mqtt.Client, signal Signal, t0 float64) {
             
             // publish
             client.Publish(signal.Topic, 1, false, message)
+            fmt.Println("Produced to", signal.Topic)
         }
         i += 1.0
     }
