@@ -27,6 +27,7 @@ func publish(topic string, channel chan Sample) {
 	for sample := range channel {
 		message, _ := json.Marshal(sample)
 		client.Publish(topic, 1, false, message)
+		fmt.Println("publishing value to", topic, "value:", sample.Value)
 	}
 }
 
