@@ -27,7 +27,7 @@ func publish(topic string, channel chan Sample) {
 	for sample := range channel {
 		message, _ := json.Marshal(sample)
 		client.Publish(topic, 1, false, message)
-		fmt.Println("publishing value to", topic, "value:", sample.Value)
+		fmt.Println("Publishing value to", topic, "value:", sample.Value)
 	}
 }
 
@@ -102,7 +102,7 @@ func dispatch_sample(client mqtt.Client, message mqtt.Message) {
 		dispatch[topic_temp] = channel_temp
 		dispatch[topic_rhum] = channel_rhum
 	}
-
+	fmt.Println("Received value from", topic, "value", sample.Value)
 	// queue channel
 	channel <- sample
 }
